@@ -155,7 +155,7 @@
   }
 
   .project-card {
-    @apply glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-500 group;
+    @apply glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-500;
   }
 
   .project-card:hover {
