@@ -25,7 +25,7 @@ const skillCategories = [
   },
   {
     title: "Tools & Others",
-    skills: ["Git", "GitHub", "VS Code", "VSCodium", "Apache Server"],
+    skills: ["GitHub", "VS Code", "VSCodium", "Apache Server", "Filezila Client"],
   },
 ];
 

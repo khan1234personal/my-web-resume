@@ -4,46 +4,104 @@ import { useRef } from "react";
 import { ExternalLink, Folder } from "lucide-react";
 
 const projects = [
+  // ===== FEATURED PROJECTS =====
   {
-    title: "Company Website Revamp",
+    title: "CampusSync Website",
     company: "Bilim Technologies",
-    description: "Rebuilt and optimized a responsive company website with improved UI and performance.",
-    technologies: ["Laravel", "Tailwind CSS", "JavaScript", "PHP", "Blade"],
+    description:
+      "Education & academic management platform built with Laravel and PostgreSQL, handling campus operations, students, and administration.",
+    technologies: ["Laravel", "PHP", "PostgreSQL", "Blade", "Tailwind CSS"],
     featured: true,
+    link: "https://www.campussync.in/",
   },
   {
-    title: "Internal Dashboard System",
+    title: "CampusSync Desktop Application",
     company: "Bilim Technologies",
-    description: "Developed admin dashboard with CRUD operations and role-based login for internal management.",
-    technologies: ["Laravel", "PHP", "MySQL", "REST API"],
+    description:
+      "Cross-platform desktop ERP application for campus management. Currently working on this system as an employee at Bilim Technologies.",
+    technologies: ["Tauri", "Rust", "React", "Laravel", "PostgreSQL"],
     featured: true,
+    link: "https://www.campussync.in/",
   },
+  {
+    title: "Zinfotec E-Commerce Platform",
+    company: "Intern Project (Mentored)",
+    description:
+      "Full-stack e-commerce platform with React frontend and Laravel backend. Implemented coupon system, email notifications, and complete product & order flow. Built under my guidance by interns.",
+    technologies: ["React", "Laravel", "PHP", "SQLite", "Mail Integration"],
+    featured: true,
+    link: "https://zinfotec.com/",
+  },
+
+  // ===== OTHER PROJECTS =====
   {
     title: "Vehicle Tracking System",
-    company: "Iotee Solution",
-    description: "Developed a real-time tracking dashboard with map integration and live updates.",
-    technologies: ["Vue.js", "Quasar Framework", "API Integration"],
-    featured: true,
+    company: "Iotee Solution (Internship)",
+    description:
+      "Real-time vehicle tracking dashboard with live updates and map integration, developed during internship.",
+    technologies: ["Vue.js", "Quasar", "API Integration"],
+    featured: false,
+  },
+  {
+    title: "Supremo Grippings",
+    company: "Industrial Client",
+    description:
+      "Industrial tools website built as a static site with PHP backend for contact form email integration and client email management.",
+    technologies: ["HTML", "CSS", "PHP"],
+    featured: false,
+    link: "https://supremogrippings.com/",
+  },
+  {
+    title: "Hotel Great Annapurna",
+    company: "Hospitality Client",
+    description:
+      "Hotel website with room booking system built using Lumen framework and SQLite database.",
+    technologies: ["Lumen", "PHP", "SQLite"],
+    featured: false,
+    link: "https://hotelgreatannapurna.com/",
+  },
+  {
+    title: "Education Expo",
+    company: "Event Platform",
+    description:
+      "Expo and exhibition website developed in React with Laravel backend. Worked in a team focusing on performance and maintenance.",
+    technologies: ["React", "Laravel", "Team Collaboration"],
+    featured: false,
+    link: "https://educationexpo.org/",
+  },
+  {
+    title: "Rabita Pilgrimage",
+    company: "Travel & Tours",
+    description:
+      "Travel booking platform built in Laravel with SQLite. Includes custom package builder allowing users to create or choose predefined travel packages.",
+    technologies: ["Laravel", "PHP", "SQLite"],
+    featured: false,
+    link: "https://www.rabitapilgrimage.com/",
+  },
+  {
+    title: "Jet Four Securities",
+    company: "Security Services",
+    description:
+      "Corporate security services website with PHP-based contact and email integration system.",
+    technologies: ["PHP", "HTML", "CSS", "Mail Integration"],
+    featured: false,
+    link: "https://www.jetfoursecurities.com/",
+  },
+  {
+    title: "Minds in Motion Foundation",
+    company: "NGO",
+    description:
+      "NGO website developed in Laravel with multiple pages and functional enhancements.",
+    technologies: ["Laravel", "PHP", "Blade"],
+    featured: false,
+    link: "https://mindsinmotion.in/",
   },
   {
     title: "UrduBlog Platform",
-    company: "Bilim Technologies",
-    description: "Created a bilingual blog platform supporting Urdu & English content with complete admin dashboard.",
-    technologies: ["PHP", "HTML/CSS", "SQLite", "Bootstrap"],
-    featured: false,
-  },
-  {
-    title: "CampusSync",
-    company: "Bilim Technologies",
-    description: "Maintained and enhanced website and desktop ERP system for campus management.",
-    technologies: ["Laravel", "Tauri", "Rust", "PostgreSQL", "React Native"],
-    featured: false,
-  },
-  {
-    title: "E-Commerce Platform",
-    company: "DSD Course Project",
-    description: "Developed a complete e-commerce project with frontend, backend, and database integration.",
-    technologies: ["AngularJS", "MySQL", "PHP", "Apache Server"],
+    company: "Bilim Technologies (Internship)",
+    description:
+      "Bilingual Urdu & English blog platform built using Lumen during internship. Included admin dashboard and content management.",
+    technologies: ["Lumen", "PHP", "SQLite", "Bootstrap"],
     featured: false,
   },
 ];
@@ -85,12 +143,17 @@ const ProjectsSection = () => {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Folder className="text-primary" size={24} />
                   </div>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <ExternalLink size={20} />
-                  </motion.button>
+                  {project.link && (
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ExternalLink size={20} />
+                    </motion.a>
+                  )}
                 </div>
 
                 <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
@@ -103,18 +166,13 @@ const ProjectsSection = () => {
 
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs code-font text-muted-foreground"
-                    >
+                    <span key={tech} className="text-xs code-font text-muted-foreground">
                       {tech}
                     </span>
-                  ))
-                  }
+                  ))}
                 </div>
               </motion.div>
-            ))
-            }
+            ))}
           </div>
 
           {/* Other Projects */}
@@ -136,22 +194,36 @@ const ProjectsSection = () => {
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 className="glass-card p-5 rounded-lg hover:border-primary/50 transition-all group"
               >
-                <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h4>
+                <div className="flex items-start justify-between mb-2">
+  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+    {project.title}
+  </h4>
+
+  {project.link && (
+    <motion.a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1 }}
+      className="text-muted-foreground hover:text-primary transition-colors"
+    >
+      <ExternalLink size={16} />
+    </motion.a>
+  )}
+</div>
                 <p className="text-xs text-primary mb-2">{project.company}</p>
-                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span key={tech} className="text-xs code-font text-muted-foreground">
                       {tech}
                     </span>
-                  ))
-                  }
+                  ))}
                 </div>
               </motion.div>
-            ))
-            }
+            ))}
           </div>
         </div>
       </div>
