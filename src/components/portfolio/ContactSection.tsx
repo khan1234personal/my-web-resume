@@ -89,7 +89,7 @@ const ContactSection = () => {
             className="flex justify-center gap-4 mt-12"
           >
             <motion.a
-              href="https://github.com"
+              href="https://github.com/khan1234personal/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 text-muted-foreground hover:text-primary transition-colors"
@@ -98,7 +98,7 @@ const ContactSection = () => {
               <Github size={24} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/abdullah-khan-b9b76a2bb"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 text-muted-foreground hover:text-primary transition-colors"
