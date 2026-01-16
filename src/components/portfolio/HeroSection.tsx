@@ -38,7 +38,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-primary code-font text-lg mb-4"
+            className="text-primary code-font text-2xl mb-4 mt-10"
           >
             Hi, my name is
           </motion.p>
